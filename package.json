@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/shahnawaz-pabon/kafka-consumer/issues"
   },
-  "homepage": "https://github.com/shahnawaz-pabon/kafka-consumer#readme"
+  "homepage": "https://github.com/shahnawaz-pabon/kafka-consumer#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "http": "0.0.1-security",
+    "kafkajs": "^2.1.0",
+    "socket.io": "^4.5.1"
+  }
 }
