@@ -43,3 +43,31 @@ async function run() {
 /**
  * End of Kafka consumer
  */
+
+/**
+ * Socket Server
+ */
+
+const server = http.createServer(app);
+const io = socketio(server, {
+  cors: {
+    origin: "*",
+    // methods: ["GET", "POST"],
+  },
+});
+app.use(cors());
+io.on("connection", (socket) => {
+  console.log("User has connected: " + socket.id);
+  io.emit("SEND_NOTIFICATION", {
+    message: "Chat connected",
+    id: socket.id,
+  });
+  socket.on("hello", (arg) => {
+    console.log(arg); // world
+  });
+  socket.on("disconnect", () => {
+    console.log("User has disconnected.");
+  });
+});
+
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
